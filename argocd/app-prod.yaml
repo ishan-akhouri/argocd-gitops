@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd-app-prod
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/ishan-akhouri/argo-cd-app.git
+      targetRevision: HEAD
+      path: charts
+      helm:
+        releaseName: argo-cd-app-prod
+        valueFiles:
+          - $values/apps/prod/values-prod.yaml
+    - repoURL: https://github.com/ishan-akhouri/argocd-gitops.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

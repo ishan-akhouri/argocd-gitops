@@ -1,0 +1,17 @@
+image:
+  repository: ishanakhouri/argo-cd-app
+  tag: "latest"
+  pullPolicy: Always
+
+replicaCount: 2
+
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30080
+
+imagePullSecrets:
+  - name: regcred
+
+rollout:
+  enabled: false
