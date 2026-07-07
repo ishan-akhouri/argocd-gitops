@@ -1,17 +1,13 @@
 image:
   repository: ishanakhouri/argo-cd-app
-  tag: "latest"
+  tag: "1750b2166a95e813406eb3f4a3d13b74c2a3f77c"
   pullPolicy: Always
-
 replicaCount: 2
-
 service:
   type: NodePort
   port: 3000
   nodePort: 30080
-
 imagePullSecrets:
   - name: regcred
-
 rollout:
   enabled: false
