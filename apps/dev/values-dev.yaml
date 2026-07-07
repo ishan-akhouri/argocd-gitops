@@ -1,6 +1,6 @@
 image:
   repository: ishanakhouri/argo-cd-app
-  tag: "86145d54f7026490bdf47653005495bef05a562b"
+  tag: "94f058ecdd51e0d86b439a9a8e9b26bdddf20bce"
   pullPolicy: Always
 replicaCount: 2
 service:
