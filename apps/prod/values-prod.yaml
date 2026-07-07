@@ -1,17 +1,13 @@
 image:
   repository: ishanakhouri/argo-cd-app
-  tag: "latest"
+  tag: "8c3ba9346b75e5e466b80cf047f2e213bf601935"
   pullPolicy: Always
-
 replicaCount: 2
-
 service:
   type: ClusterIP
   port: 3000
-
 imagePullSecrets:
   - name: regcred
-
 rollout:
   enabled: true
   canarySteps:
